@@ -4,3 +4,5 @@ Segundo trabajo de programacion 2 del año 2020.
   -Ernesto Hontecillas Molina </br>
   -Beatriz Araico Reglero </br>
   -Diego Cuevas del Valle </br>
+
+fecha limite 3/1/2021
