@@ -1,5 +1,6 @@
 package trabajo2;
 
+@SuppressWarnings("serial")
 public class FueraDeLimitesException extends Exception{
 
 	public FueraDeLimitesException() {

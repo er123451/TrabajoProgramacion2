@@ -3,6 +3,9 @@ package trabajo2;
 public class Lista {
 	char[]list;
 	int pos;
+	
+	//constructores---------------------------------------
+	
 	public Lista(int size) {
 		list = new char[size];
 		pos = 0;
@@ -11,6 +14,8 @@ public class Lista {
 		list = new char[10];
 		pos = 0;
 	}
+	
+	//metodos---------------------------------------------
 	
 	public int Tamano() {
 		return pos;
@@ -24,8 +29,12 @@ public class Lista {
 	}
 	
 	public void Concatenar(Lista in){
-		for (int i = 0;i<list.length;i++) {
-			Anadir(in.Get(i));
+		for (int i = 0;i<in.Tamano();i++) {
+			try {
+				Anadir(in.Get(i));
+			}catch(FueraDeLimitesException e) {
+				
+			}
 		}
 	}
 	
@@ -38,7 +47,7 @@ public class Lista {
 	}
 	
 	public char Get(int i) throws FueraDeLimitesException{
-		if (i>= list.length){
+		if (i>= pos){
 			throw new FueraDeLimitesException();
 		}
 		return list[i];
@@ -61,7 +70,19 @@ public class Lista {
 		}
 		return test;
 	}
-//metodos auxiliares de la clase (private)
+	
+	public void mostrar() {
+		String concatenate = "";
+		for(char i : this.list) {
+			concatenate +=i; 
+		}
+		System.out.println(concatenate);
+	}
+	
+	
+	
+	
+//metodos auxiliares de la clase (private)---------
 	
 	private void Resize(int size){
 		char[]buffer = list;
@@ -81,4 +102,11 @@ public class Lista {
 			}catch(Exception e) {}
 		}
 	}
+	
+//Debug-----------------------------------------------
+	
+	public void MemReserve() {
+		System.out.println(list.length);
+	}
+	/**/
 }
