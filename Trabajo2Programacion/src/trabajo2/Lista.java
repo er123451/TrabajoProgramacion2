@@ -42,6 +42,10 @@ public class Lista {
 		for (int i = 0;i<list.length;i++) {
 			if (list[i] == e) {
 				Rm(i);
+				
+				//debug-----------------
+				System.out.println(e);
+				/**/
 			}
 		}
 	}
@@ -101,9 +105,16 @@ public class Lista {
 				buffer[j++] = list[i];
 			}catch(Exception e) {}
 		}
+		list = buffer;
+		pos--;
 	}
 	
 //Debug-----------------------------------------------
+	
+	public void RmTest() {
+		
+		Rm(1);
+	}
 	
 	public void MemReserve() {
 		System.out.println(list.length);
