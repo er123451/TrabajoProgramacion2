@@ -1,102 +1,134 @@
-package trabajo2;
 
 public class ColaCircular 
 {
+	//definimos las variables principales
 	char [] colacir;
-	int pos;
+	int ini;
+	int fin;
 
-
-
-
-	public ColaCircular (int size) 
-	{
-		colacir = new char[size];
-	    pos=0;
+	//constructores
 	
+	public ColaCircular (int tamano) 
+	{
+		colacir = new char[tamano];
+	    ini = 0;
+	    fin = 0;
 	}
+	
 	public ColaCircular()
 	{
 		colacir = new char [10];
-		pos = 0;
+		ini = 0;
+		fin = 0;
 	}
+	
+	//Métodos
 	
 	public int tamano()
 	{
-		return pos;
+		int longitud = fin-ini+1;
+		return (longitud);
 	}
 
+	
 	public char primero() 
 	{
-		if (i=colacir.length) 
+		
+		if (estaVacia())
 		{
-			throw new ColaVaciaException();
-			
+			throw new ColaVaciaExcpetion();		//Rama de error
 		}
-		return colacir[1];
+		else
+		{
+			return colacir[ini];
+		}
 	}
 	
 	
-	
 
-	public void añadir (char e)
+	public void anadir (char e)
 	{
-		if (this.colacir.length<this.pos+1)
+		
+		if (estaLlena())
 		{
-			throw new ColaLlenaExcpetion();
+			throw new ColaLlenaExcpetion();		//Rama de error
 		}
-		colacir [pos++]=e;
-	
-	
-	}
-
-	public char extraer () 
-	{
-		if(this.colacir.length<this.pos-1)
+		else
 		{
-			throw new ColaVaciaExcpetion();
+			colacir[fin++] = e;
 		}
 		
-		colacir[pos--]=e;
+		return;
 	}
+		
 	
+	public char extraer () 
+	{
+		// Variables locales de la función 
+		char elemento; 		// Elemento a extraer
+		
+		// Extracción
+		if (estaVacia())
+		{
+			throw new ColaVaciaExcpetion ();		// Rama de error
+		}
+		else
+		{
+			elemento = colacir[ini++];			// Extracción 
+		}
+		
+		return elemento;
+	}      
+		
 	
-	
+	//
 	public boolean estaVacia()
 	{
-		if (pos==0) {
-			return true;
-		}else 
+		boolean full; 
+		int diferencia =fin - ini;
+		
+		if (diferencia == 0) 
 		{
-			return false;
+			full = true;
 		}
+		else
+		{
+			full = false;
+		}
+		
+		return full;
 	}
 		
 	
 	
 	public boolean estaLlena()
 	{
-		if (pos==10) {
-			return true;
-			
-		}else
+		boolean full;
+		int diferencia = fin - ini;
+		if (diferencia+1 == this.colacir.length) || ((diferencia+this.colacir.length+1 == this.colacir.length) & (difernecia < 0))
 		{
-			return false;
+			full = true;
 		}
-	}
+		else
+		{
+			full = false;
+		}
 		
-	
-
+		return full;
+	}
+		  
+		
 	public boolean contiene (char e)
 	{
 		boolean test = false;
-		for(int i=0;i<colacir.length;i++)
+		for(int i  = ini; i < fin ; i++)
 		{
-			if (colacir[i]==e)
+			if (colacir[i] == e)
 			{
 				test=true;
 			}
-			
 		}
+		
 		return test;
 	}
 	
@@ -104,6 +136,12 @@ public class ColaCircular
 
 	public void mostrar () 
 	{
+		String concatenate = "";
+		for(char i: this.colacir) {
+			concatenate += i;
+		}
 	
+		System.out.println(concatenate);
 	}
-
+}
+		
