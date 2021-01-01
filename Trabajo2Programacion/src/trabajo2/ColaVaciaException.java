@@ -1,12 +1,10 @@
-package trabajo2;
+package trabajo2
 
 
-@SuppressWarnings("serial")
-public class ColaVaciaException extends Exception
+public class ColaVaciaException extends Excpetion
 {
 	public ColaVaciaException ()
 	{
-		System.err.println ("La cola de los arrays está vacía");
+		System.err.println ("La cola está vacía");
 	}
-
 }
