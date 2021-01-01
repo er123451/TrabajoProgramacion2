@@ -44,6 +44,7 @@ public class Lista {
 				Rm(i);
 				
 				//debug-----------------
+				/*
 				System.out.println(e);
 				/**/
 			}
@@ -110,7 +111,7 @@ public class Lista {
 	}
 	
 //Debug-----------------------------------------------
-	
+	/*
 	public void RmTest() {
 		
 		Rm(1);

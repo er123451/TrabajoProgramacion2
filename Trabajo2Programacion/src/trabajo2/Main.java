@@ -1,4 +1,7 @@
 package trabajo2;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Main {
 
@@ -43,7 +46,7 @@ public class Main {
 		l.borrar(letra);
 		l.mostrar();
 		try { 
-			System.out.println(l.Get(0));
+			System.out.println(l.Get(7));
 		}catch(Exception FueraDeLimitesException) {
 			
 		}
@@ -72,10 +75,42 @@ public class Main {
 		l.mostrar();
 		/**/
 		
+		System.out.println("leer archivo");
+		Lista j = file2lista("./mensaje.txt");
+		j.mostrar();
+		System.out.println("archivo leido");
 	}/**/
 	
 	public static void ln() {
 		System.out.println("");
 	}
+	
+	public static Lista file2lista(String filename) {
+		Lista out = new Lista();
+		FileReader file;
+		int character;
+		
+		try {
+			file = new FileReader(filename);
+			
+			while((character = file.read()) != -1){
+				/*
+				System.out.print((char)character);
+				Thread.sleep(100);
+				ln();
+				/**/
+				out.Anadir((char)character);
+			}
 
+		} catch (FileNotFoundException e) {
+			System.err.println("el archivo no existe");
+		} catch (IOException e) {
+			System.out.println("IO");
+		/*} catch (InterruptedException e) {
+			System.out.println("interr");*/
+		}
+		
+		
+		return out;
+	}
 }
