@@ -3,11 +3,8 @@ package trabajo2;
 
 	public class ColaLlenaExcpetion extends  Exception
 	{
-		public ColaLlenaException () 
+		public ColaLlenaException() 
 		{
-			System.err.println("No hay hueco en el array dado que está lleno");
-			
+			System.err.println("La cola está llena");			
 		}
-	
-
 	}
