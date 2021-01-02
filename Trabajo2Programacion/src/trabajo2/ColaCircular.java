@@ -58,11 +58,12 @@ public class ColaCircular
 		}
 		else
 		{
+			
+			colacir[fin++] = e;			// Adición
+			elementos++;
 			if (fin == colacir.length) {
 				fin = 0;
 			}
-			colacir[fin++] = e;			// Adición
-			elementos++;
 		}
 
 		return;
@@ -80,8 +81,12 @@ public class ColaCircular
 		}
 		else
 		{
+			
 			elemento = colacir[ini++];			    // Extraccion
 			elementos--;
+			if (ini == colacir.length) {
+				ini = 0;
+			}
 		}
 
 		return elemento;
