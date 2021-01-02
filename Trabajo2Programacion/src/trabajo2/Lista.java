@@ -2,7 +2,7 @@ package trabajo2;
 
 public class Lista {
 	char[]list;
-	int pos;
+	private int pos;
 	
 	//constructores---------------------------------------
 	
@@ -42,11 +42,6 @@ public class Lista {
 		for (int i = 0;i<list.length;i++) {
 			if (list[i] == e) {
 				Rm(i);
-				
-				//debug-----------------
-				/*
-				System.out.println(e);
-				/**/
 			}
 		}
 	}
@@ -109,16 +104,4 @@ public class Lista {
 		list = buffer;
 		pos--;
 	}
-	
-//Debug-----------------------------------------------
-	/*
-	public void RmTest() {
-		
-		Rm(1);
-	}
-	
-	public void MemReserve() {
-		System.out.println(list.length);
-	}
-	/**/
 }
