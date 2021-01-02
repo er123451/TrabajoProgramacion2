@@ -1,7 +1,8 @@
-package trabajo2
+package trabajo2;
 
 
-public class ColaVaciaException extends Excpetion
+@SuppressWarnings("serial")
+public class ColaVaciaException extends Exception
 {
 	public ColaVaciaException ()
 	{

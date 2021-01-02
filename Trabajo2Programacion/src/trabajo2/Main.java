@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Main {
-
+/*
 	public static void main(String[] args) {
 		// Metodo para probar la clase Lista
 		Lista l = new Lista();
@@ -17,7 +17,7 @@ public class Main {
 		r.MemReserve();
 		/**/
 		
-		
+/*		
 		System.out.println("lista l");
 		for(int i = 0; i<50; i++) {
 			letra = (char)(Math.random()*127+'0');
@@ -53,7 +53,7 @@ public class Main {
 		/*
 		l = new Lista();
 		System.out.println(l.EstaVacia());
-		/**/
+		/**//*
 		System.out.println(l.Contiene('e'));
 		
 		/**/
@@ -73,7 +73,7 @@ public class Main {
 		ln();
 		l.borrar('b');
 		l.mostrar();
-		/**/
+		/**//*
 		
 		System.out.println("leer archivo");
 		Lista j = file2lista("./mensaje.txt");
@@ -81,6 +81,37 @@ public class Main {
 		System.out.println("archivo leido");
 	}/**/
 	
+//metodo para probar la clase ColaCircular.java-----------------
+	
+	public static void main(String[]args) {
+		ColaCircular l = new ColaCircular();
+		//ColaCircular r = new ColaCircular(20);
+		
+		/*
+		l.TamanoArray();
+		r.TamanoArray();
+		/**/
+		
+		//excepciones-----
+		try {
+			//ColaVaciaException
+			
+			//l.extraer();
+			l.primero();
+			
+			/**/
+			//ColaLlenaException
+			
+			
+			/**/
+			
+		}catch(ColaVaciaException e){
+			System.out.println("funciona (CV)");
+		}
+		
+	}
+	
+//Metodos auxiliares--------------------------------------------
 	public static void ln() {
 		System.out.println("");
 	}

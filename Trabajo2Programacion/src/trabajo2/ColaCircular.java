@@ -1,3 +1,5 @@
+package trabajo2;
+
 
 public class ColaCircular 
 {
@@ -31,12 +33,12 @@ public class ColaCircular
 	}
 
 	
-	public char primero() 
+	public char primero() throws ColaVaciaException
 	{
 		
 		if (estaVacia())
 		{
-			throw new ColaVaciaExcpetion();		//Rama de error
+			throw new ColaVaciaException();		//Rama de error
 		}
 		else
 		{
@@ -46,12 +48,12 @@ public class ColaCircular
 	
 	
 
-	public void anadir (char e)
+	public void anadir (char e) throws ColaLlenaException
 	{
 		
 		if (estaLlena())
 		{
-			throw new ColaLlenaExcpetion();		//Rama de error
+			throw new ColaLlenaException();		//Rama de error
 		}
 		else
 		{
@@ -62,7 +64,7 @@ public class ColaCircular
 	}
 		
 	
-	public char extraer () 
+	public char extraer () throws ColaVaciaException
 	{
 		// Variables locales de la función 
 		char elemento; 		// Elemento a extraer
@@ -70,7 +72,7 @@ public class ColaCircular
 		// Extracción
 		if (estaVacia())
 		{
-			throw new ColaVaciaExcpetion ();		// Rama de error
+			throw new ColaVaciaException ();		// Rama de error
 		}
 		else
 		{
@@ -105,7 +107,7 @@ public class ColaCircular
 	{
 		boolean full;
 		int diferencia = fin - ini;
-		if (diferencia+1 == this.colacir.length) || ((diferencia+this.colacir.length+1 == this.colacir.length) & (difernecia < 0))
+		if ((diferencia+1 == this.colacir.length) || ((diferencia+this.colacir.length+1 == this.colacir.length) & (diferencia < 0)))
 		{
 			full = true;
 		}
@@ -143,5 +145,13 @@ public class ColaCircular
 	
 		System.out.println(concatenate);
 	}
+	
+//debug-------------------------------------------
+	/*
+	public void TamanoArray() {
+	System.out.println(colacir.length);	
+	}
+	
+	/**/
 }
 		
