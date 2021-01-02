@@ -7,6 +7,7 @@ public class ColaCircular
 	char [] colacir;
 	int ini;
 	int fin;
+	int elementos;
 
 	//constructores
 	
@@ -15,6 +16,7 @@ public class ColaCircular
 		colacir = new char[tamano];
 	    ini = 0;
 	    fin = 0;
+	    elementos = 0;
 	}
 	
 	public ColaCircular()
@@ -22,6 +24,7 @@ public class ColaCircular
 		colacir = new char [10];
 		ini = 0;
 		fin = 0;
+		elementos = 0;
 	}
 	
 	//Métodos
@@ -57,7 +60,11 @@ public class ColaCircular
 		}
 		else
 		{
+			if (fin == colacir.length) {
+				fin = 0;
+			}
 			colacir[fin++] = e;
+			elementos++;
 		}
 		
 		return;
@@ -77,6 +84,7 @@ public class ColaCircular
 		else
 		{
 			elemento = colacir[ini++];			// Extracción 
+			elementos--;
 		}
 		
 		return elemento;
@@ -106,8 +114,9 @@ public class ColaCircular
 	public boolean estaLlena()
 	{
 		boolean full;
-		int diferencia = fin - ini;
-		if ((diferencia+1 == this.colacir.length) || ((diferencia+this.colacir.length+1 == this.colacir.length) & (diferencia < 0)))
+		//int diferencia = fin - ini;
+		//if ((diferencia+1 == this.colacir.length) || ((diferencia+this.colacir.length+1 == this.colacir.length) & (diferencia < 0)))
+		if (colacir.length == elementos)
 		{
 			full = true;
 		}
@@ -123,9 +132,11 @@ public class ColaCircular
 	public boolean contiene (char e)
 	{
 		boolean test = false;
-		for(int i  = ini; i < fin ; i++)
+		String mostrar = mostrarString();
+		char[] data = mostrar.toCharArray();
+		for(int i  = 0; i < data.length ; i++)
 		{
-			if (colacir[i] == e)
+			if (data[i] == e)
 			{
 				test=true;
 			}
@@ -139,11 +150,52 @@ public class ColaCircular
 	public void mostrar () 
 	{
 		String concatenate = "";
-		for(char i: this.colacir) {
-			concatenate += i;
-		}
+		char letra;
+		int i = ini;
+		do
+		{
+			if (i == colacir.length) {
+				i = 0;
+			}
+			letra = colacir[i++];
+			concatenate += letra;
+			
+			/*//Debug---------------------------
+			System.out.println(i);
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+				}
+				/**/
+		}while(i != fin);
 	
-		System.out.println(concatenate);
+		System.out.print(concatenate);
+	}
+	
+//auxiliares--------------------------------------
+	private String mostrarString () 
+	{
+		String concatenate = "";
+		char letra;
+		int i = ini;
+		do
+		{
+			if (i == colacir.length) {
+				i = 0;
+			}
+			letra = colacir[i++];
+			concatenate += letra;
+			
+			/*//Debug---------------------------
+			System.out.println(i);
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+				}
+				/**/
+		}while(i != fin);
+	
+		return concatenate;
 	}
 	
 //debug-------------------------------------------
