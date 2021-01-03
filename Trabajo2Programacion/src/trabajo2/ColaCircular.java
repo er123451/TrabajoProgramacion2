@@ -3,17 +3,20 @@ package trabajo2;
 
 public class ColaCircular 
 {
-	//definimos las variables principales
-	char [] colacir;
-	int ini;
-	int fin;
-	private int elementos;
+	//Definimos las variables principales
+	private char [] colacir;		// Cola circular
+	private int ini;		// Índice para registrar el valor del primer elemento válido
+	private int fin;		// Índice para registrar el valor del último elemento válido
+	private int elementos;		//Número de elementos
 
 	//constructores
 	
 	public ColaCircular (int tamano) 
 	{
+		// Crea una cola con tamaño tamano
 		colacir = new char[tamano];
+		
+		// Inicializa los índices
 	    ini = 0;
 	    fin = 0;
 	    elementos = 0;
@@ -21,7 +24,10 @@ public class ColaCircular
 	
 	public ColaCircular()
 	{
+		// Crea una cola con tamaño máximo 10
 		colacir = new char [10];
+		
+		// Inicializa los índices
 		ini = 0;
 		fin = 0;
 		elementos = 0;
@@ -31,7 +37,7 @@ public class ColaCircular
 	
 	public int tamano()
 	{
-		int longitud = fin-ini+1;
+		int longitud = fin-ini+1;		// Calcula el tamano ocupado en la cola
 		return (longitud);
 	}
 
@@ -45,7 +51,7 @@ public class ColaCircular
 		}
 		else
 		{
-			return colacir[ini];
+			return colacir[ini];		// Devuelve el primer elemento válido
 		}
 	}
 	
@@ -63,7 +69,7 @@ public class ColaCircular
 			if (fin == colacir.length) {
 				fin = 0;
 			}
-			colacir[fin++] = e;
+			colacir[fin++] = e;		// Adición
 			elementos++;
 		}
 		
@@ -107,7 +113,7 @@ public class ColaCircular
 		
 	public boolean contiene (char e)
 	{
-		boolean test = false;
+		boolean test = false;		// Variable para comprobar si el elemento e está en la cola
 		String mostrar = mostrarString();
 		char[] data = mostrar.toCharArray();
 		for(int i  = 0; i < data.length ; i++)
@@ -141,7 +147,8 @@ public class ColaCircular
 		System.out.print(concatenate);
 	}
 	
-//auxiliares--------------------------------------
+	//Métodos auxiliares para realizar ColaCircular
+	//auxiliares--------------------------------------
 	private String mostrarString () 
 	{
 		String concatenate = "";
@@ -161,4 +168,3 @@ public class ColaCircular
 	}
 
 }
-		
